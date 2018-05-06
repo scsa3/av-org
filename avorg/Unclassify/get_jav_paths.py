@@ -1,15 +1,19 @@
-from Unclassify.file_format import video
 from pathlib import Path, WindowsPath
+
+from Unclassify.file_format import video
 
 handle_path = WindowsPath(r'X:\GoogleDrive\Local\Videos\Porn\Unclassify')
 target_path = WindowsPath(r'X:\GoogleDrive\Local\Videos\Porn\!!')
 delete_path = WindowsPath(r'X:\GoogleDrive\Local\Videos\Porn\!delete')
 
 
-def file_search(path=Path(r'.'), pattern=r'**/*'):
-    file_paths = path.glob(pattern)
-    for file_path in file_paths:
-        print(file_path)
+def file_search(path: str = r'.',
+                pattern: str = r'**/*'
+                ) -> list:
+    file_paths = Path(path).glob(pattern)
+    # for file_path in file_paths:
+    #     print(file_path)
+    return list(file_paths)
 
 
 def video_search(path=Path(r'.')):
@@ -64,7 +68,8 @@ def delete_small_dirs(path=handle_path, threshold_size=10 * 1024 * 1024):
 if __name__ == '__main__':
     # file_search(handle_path, r'**/*.avi')
     # get_directory_size(Path(r'X:\GoogleDrive\Local\KodiTest'))
-    video_paths = video_search(handle_path)
-    image_paths = get_pair_image(video_paths)
-    replace_file(video_paths)
-    replace_file(image_paths)
+    # video_paths = video_search(handle_path)
+    # image_paths = get_pair_image(video_paths)
+    # replace_file(video_paths)
+    # replace_file(image_paths)
+    pass
