@@ -14,7 +14,7 @@ class FileHandle:
 
     def get_files_path(self):
         pattern = r'**/*'
-        self.paths = self.directory.glob(pattern)
+        self.paths = list(self.directory.glob(pattern))
 
     def extension_filter(self, extensions: list = None):
         if not extensions:
@@ -45,3 +45,6 @@ if __name__ == '__main__':
     h = FileHandle()
     h.get_files_path()
     print(h.paths)
+    h.extension_filter()
+    print(h.result)
+    print(len(h.result))
