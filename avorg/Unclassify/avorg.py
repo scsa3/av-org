@@ -1,25 +1,24 @@
 import re
-import shutil
-import pickle
-# import requests
-# from lxml import etree
-from pathlib import Path
-from time import sleep
+import requests
 import tkinter as tk
 import tkinter.filedialog as filedialog
 import tkinter.messagebox as messagebox
 import tkinter.ttk as ttk
-import sys
+from lxml import etree
+from pathlib import Path
 
 
 class DMM:
-    directories = {'done': Path('./Done'), }
-    urls = {'main': 'http://www.dmm.co.jp/',
-            'search': 'http://www.dmm.co.jp/digital/videoa/-/detail/=/cid=',
-            'search2': 'http://www.dmm.co.jp/search/=/n1=FgRCTw9VBA4GAVhfWkIHWw__/sort=ranking/searchstr=hmgl00149', }
-    xpaths = {'name': './/*[@id="performer"]/a',
-              'date': './/*[@id="mu"]/div/table/tr/td[1]/table/tr[3]/td[2]',
-              'image': './/*[@id="sample-video"]/a', }
+    directories = {
+        'done': Path('./Done'), }
+    urls = {
+        'main': 'http://www.dmm.co.jp/',
+        'search': 'http://www.dmm.co.jp/digital/videoa/-/detail/=/cid=',
+        'search2': 'http://www.dmm.co.jp/search/=/n1=FgRCTw9VBA4GAVhfWkIHWw__/sort=ranking/searchstr=hmgl00149', }
+    xpaths = {
+        'name': './/*[@id="performer"]/a',
+        'date': './/*[@id="mu"]/div/table/tr/td[1]/table/tr[3]/td[2]',
+        'image': './/*[@id="sample-video"]/a', }
 
     def __init__(self):
         # self.response = requests.get(self.urls['main'])
