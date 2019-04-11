@@ -5,7 +5,7 @@ from typing import List
 
 
 def videos_finder(source_directory: Path) -> List[Path]:
-    pattern = r'^[a-zA-Z]{2,5}-?[0-9]{2,5}' \
+    pattern = r'^[a-zA-Z]{2,5}-?[0-9]{3,5}' \
               r'\.(avi|mkv|mp4|mpg|wmv)$'
     result = []
     for path in source_directory.glob('**/*'):
@@ -24,4 +24,5 @@ if __name__ == '__main__':
 
     source_path = Path(source_str)
     paths = videos_finder(source_path)
-    print(paths)
+    for path in paths:
+        print(path)
