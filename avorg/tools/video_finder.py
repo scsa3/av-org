@@ -1,8 +1,9 @@
 import sys
 from pathlib import Path
+from typing import List
 
 
-def videos_finder(source_directory: Path) -> list:
+def videos_finder(source_directory: Path) -> List[Path]:
     movie_extensions = ('.avi', '.mkv', '.mp4')
     result = []
     for path in source_directory.glob('**/*'):
@@ -13,7 +14,7 @@ def videos_finder(source_directory: Path) -> list:
 
 if __name__ == '__main__':
     # arguments by hand
-    source_str = '../../target/'
+    source_str = '../temp/source/'
 
     argv = sys.argv
     if len(argv) == 2:
