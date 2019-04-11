@@ -4,7 +4,8 @@ from pathlib import Path
 
 def dummy_maker(source_directory: Path, target_directory: Path) -> None:
     for path in source_directory.glob('**/*'):
-        new_path = target_directory / path
+        new_path = target_directory / path.relative_to(source_directory)
+
         if path.is_dir():
             new_path.mkdir(parents=True, exist_ok=True)
         elif path.is_file():
@@ -13,8 +14,8 @@ def dummy_maker(source_directory: Path, target_directory: Path) -> None:
 
 if __name__ == '__main__':
     # arguments by hand
-    source_str = './temp'
-    target_str = './temp2/'
+    source_str = './temp/source'
+    target_str = './temp/target'
 
     argv = sys.argv
     if len(argv) == 3:
