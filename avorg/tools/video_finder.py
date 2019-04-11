@@ -1,13 +1,15 @@
 import sys
+import re
 from pathlib import Path
 from typing import List
 
 
 def videos_finder(source_directory: Path) -> List[Path]:
-    movie_extensions = ('.avi', '.mkv', '.mp4')
+    pattern = r'^[a-zA-Z]{2,5}-?[0-9]{2,5}' \
+              r'\.(avi|mkv|mp4|mpg|wmv)$'
     result = []
     for path in source_directory.glob('**/*'):
-        if path.suffix in movie_extensions:
+        if re.search(pattern, path.name):
             result.append(path)
     return result
 
