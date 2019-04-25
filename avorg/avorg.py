@@ -1,4 +1,5 @@
 import re
+import shelve
 from dataclasses import dataclass
 from operator import methodcaller
 from pathlib import Path
@@ -6,6 +7,10 @@ from typing import List
 
 import requests
 from lxml import etree
+
+
+class Actress:
+    pass
 
 
 @dataclass
@@ -109,7 +114,7 @@ class AVOrg:
 
 
 if __name__ == '__main__':
-    root_path = Path('../videos/')
+    root_path = Path('../source/')
     # root_path = Path('/Users/heweihan/Downloads/target/')
     target_path = Path('../target/')
     # target_path = Path('/Users/heweihan/Downloads/')

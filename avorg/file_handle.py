@@ -7,7 +7,7 @@ class FileHandle:
     paths: Iterable[Path]
     # default_path = r'.'
     # HACK: this default_path is dev
-    default_path = r'/Users/heweihan/PycharmProjects/av-org/videos'
+    default_path = r'/Users/heweihan/PycharmProjects/av-org/source'
     default_extensions = ('.avi', '.mkv', '.mp4')
 
     def __init__(self, path: str = default_path):
